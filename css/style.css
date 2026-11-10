@@ -1,0 +1,137 @@
+/* Amazona Pinturas – folha de estilos */
+:root{--navy:#0A2A66;--blue:#1646A8;--yellow:#FFC20E;--wa:#0E7A3F;--paper:#FFFFFF;--concrete:#EEF1F5;--ink:#101828;--muted:#475467;--line:#D5DBE5;--link:#1646A8;--fd:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--fb:Barlow,"Segoe UI",Arial,sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#0B1220;--concrete:#111B30;--ink:#EAF0FB;--muted:#A9B8D4;--line:#25365A;--link:#8DB4FF}}
+:root[data-theme="dark"]{--paper:#0B1220;--concrete:#111B30;--ink:#EAF0FB;--muted:#A9B8D4;--line:#25365A;--link:#8DB4FF}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--fb);font-size:17px;line-height:1.6;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--paper);z-index:60}
+img{max-width:100%;display:block}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;background:var(--yellow);color:var(--navy);padding:10px 14px;font-weight:700;z-index:80}
+.skip:focus{left:8px}
+
+/* Cabeçalho */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+.brand{background:#fff;padding:4px 10px;border-radius:4px;display:flex}
+.brand img{height:46px;width:auto}
+.nav-toggle{display:none;background:var(--navy);color:#fff;border:0;border-radius:6px;min-height:46px;padding:0 16px;font:700 16px var(--fb);cursor:pointer}
+#menu{display:flex;align-items:center;gap:26px}
+#menu a{color:var(--ink);text-decoration:none;font-weight:600}
+#menu a:hover{text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:3px;text-underline-offset:6px}
+#menu a.btn{color:var(--navy);text-decoration:none}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:6px;font:700 17px var(--fb);text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-y{background:var(--yellow);color:var(--navy)}
+.btn-y:hover{background:#ffd23f}
+.btn-line{border-color:#fff;color:#fff;background:transparent}
+.btn-line:hover{background:rgba(255,255,255,.12)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn[disabled]{opacity:.7;cursor:wait}
+
+/* Secções */
+.sec{padding:clamp(56px,8vw,104px) 0}
+.sec.alt{background:var(--concrete)}
+.sec.dark{background:var(--navy);color:#fff}
+h1,h2,h3{font-family:var(--fd);line-height:1.04;margin:0;font-weight:800;letter-spacing:.2px}
+h2{font-size:clamp(34px,5vw,54px);margin-bottom:12px}
+h3{font-size:28px;margin-bottom:6px}
+.lead{max-width:60ch;color:var(--muted);margin:0 0 40px;font-size:18px}
+.dark .lead{color:#D6E2F8}
+p{margin:0 0 14px}
+
+/* Marcação de piso: motivo da marca */
+.marking{height:8px;background:repeating-linear-gradient(90deg,var(--yellow) 0 48px,transparent 48px 84px)}
+
+/* Hero */
+.hero{background:var(--navy);color:#fff;padding:clamp(48px,7vw,96px) 0 clamp(40px,6vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(46px,8vw,96px);margin-bottom:20px}
+.hero p.sub{font-size:clamp(18px,2.2vw,21px);color:#D6E2F8;max-width:46ch;margin-bottom:28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.facts{margin:0;padding:18px 0 0;border-top:1px solid #2F63B8;color:#D6E2F8;font-size:16px}
+.floor{position:relative;aspect-ratio:5/4;overflow:hidden;border-radius:4px;background:linear-gradient(165deg,#3A78E8,#1646A8 50%,#0B2D70)}
+.floor::before{content:"";position:absolute;inset:-20% -10% 45% -10%;background:radial-gradient(ellipse at 30% 40%,rgba(255,255,255,.4),transparent 62%);transform:skewX(-12deg)}
+.floor .lane{position:absolute;left:8%;right:8%;bottom:24%;height:8px;background:repeating-linear-gradient(90deg,var(--yellow) 0 44px,transparent 44px 78px)}
+.floor .arrow{position:absolute;right:11%;bottom:32%;width:76px;height:50px;background:var(--yellow);clip-path:polygon(0 30%,55% 30%,55% 0,100% 50%,55% 100%,55% 70%,0 70%)}
+.floor .bay{position:absolute;left:8%;top:34%;width:34%;height:30%;border:8px solid var(--yellow);border-top:0}
+.floor figcaption{position:absolute;left:18px;bottom:14px;font-size:14px;font-weight:600;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+
+/* Serviços */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 40px}
+.service{border-top:4px solid var(--navy);padding:20px 0 30px}
+.service p{color:var(--muted);margin:0}
+
+/* Porquê */
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px 40px}
+.why div{border-left:4px solid var(--yellow);padding-left:16px}
+.why p{margin:0;color:var(--muted)}
+
+/* Obras */
+.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
+.work .photo{position:relative;aspect-ratio:4/3;background:var(--concrete);border:2px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600;overflow:hidden}
+.work .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.work figcaption{padding-top:12px}
+.work strong{display:block;font:800 26px var(--fd)}
+.work span{color:var(--muted);font-size:16px}
+.note{margin-top:32px;color:var(--muted)}
+.sectors{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px 40px;margin:48px 0 0;padding:32px 0 0;border-top:1px solid var(--line)}
+.sectors h3{font-size:24px}
+.sectors p{margin:0;color:var(--muted)}
+
+/* Parceiros e processo */
+.for{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px 40px;margin-bottom:64px}
+.for div{border-top:1px solid #2F63B8;padding-top:14px}
+.for p{margin:0;color:#D6E2F8}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px 32px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;border-top:4px solid var(--yellow);padding-top:14px}
+.steps li::before{content:counter(s);display:block;font:800 52px/1 var(--fd);color:var(--yellow);margin-bottom:6px}
+.steps p{margin:0;color:#D6E2F8}
+.ask{margin-top:40px;font-size:18px}
+
+/* Orçamento */
+.quote{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,64px);align-items:start}
+form{display:grid;gap:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:6px;font-weight:600;font-size:16px}
+label small{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-height:48px;width:100%}
+textarea{min-height:104px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.estado{margin:0;padding:14px 16px;border-left:5px solid var(--wa);background:var(--paper);border-radius:4px}
+.estado.erro{border-left-color:#C62828}
+.priv{font-size:14px;color:var(--muted);margin:0}
+
+/* Contactos e rodapé */
+.contacts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px 40px}
+.contacts h3{font-size:24px}
+.contacts p{margin:0}
+footer{background:var(--navy);color:#D6E2F8;padding:28px 0 36px;font-size:15px}
+footer p{margin:0 0 4px}
+footer b{color:#fff}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:55;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+
+/* Responsivo */
+@media (max-width:900px){
+  .hero .wrap,.quote{grid-template-columns:1fr}
+  .floor{aspect-ratio:16/9}
+  .nav-toggle{display:inline-flex;align-items:center}
+  #menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 20px 20px}
+  #menu.open{display:flex}
+  #menu a{padding:14px 0;border-bottom:1px solid var(--line)}
+  #menu a.btn{margin-top:14px;border:0;padding:0 24px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .row{grid-template-columns:1fr}
+  .brand img{height:40px}
+  .btn{width:100%}
+  .cta .btn{flex:1 1 100%}
+  .fab{padding:0 18px}
+  .works{grid-template-columns:1fr}
+}
